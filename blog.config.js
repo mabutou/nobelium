@@ -1,9 +1,9 @@
 const BLOG = {
-  title: 'mabutou blog',
-  author: 'Mabutou',
+  title: '马捕头',
+  author: 'mabutou',
   email: 'hi@butou.ma',
   link: 'https://blog.butou.ma',
-  description: '我未曾珍惜的，我不再拥有',
+  description: '我未曾珍惜的，我不再拥有。',
   lang: 'en-US',
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']

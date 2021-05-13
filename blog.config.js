@@ -1,5 +1,5 @@
 const BLOG = {
-  title: 'butou's blog',
+  title: 'mabutou blog',
   author: 'Mabutou',
   email: 'hi@butou.ma',
   link: 'https://blog.butou.ma',

@@ -7,9 +7,10 @@ const NavBar = () => {
   const locale = useLocale()
   const links = [
     { id: 0, name: locale.NAV.INDEX, to: BLOG.path || '/', show: true },
+    { id: 2, name: locale.NAV.SEARCH, to: '/photos', show: true },
     { id: 1, name: locale.NAV.ABOUT, to: '/about', show: BLOG.showAbout },
-    { id: 2, name: locale.NAV.RSS, to: '/feed', show: true },
-    { id: 3, name: locale.NAV.SEARCH, to: '/search', show: true }
+    { id: 3, name: locale.NAV.RSS, to: '/feed', show: true }
+//     { id: 3, name: locale.NAV.SEARCH, to: '/search', show: true }
   ]
   return (
     <div className="flex-shrink-0">
@@ -33,18 +34,15 @@ const NavBar = () => {
 }
 
 const Header = ({ navBarTitle, fullWidth }) => {
-  const useSticky = !BLOG.autoCollapsedNavBar
   const navRef = useRef(null)
   const sentinalRef = useRef([])
   const handler = ([entry]) => {
-    if (navRef && navRef.current && useSticky) {
+    if (navRef && navRef.current) {
       if (!entry.isIntersecting && entry !== undefined) {
         navRef.current.classList.add('sticky-nav-full')
       } else {
         navRef.current.classList.remove('sticky-nav-full')
       }
-    } else {
-      navRef.current.classList.add('remove-sticky')
     }
   }
   useEffect(() => {
@@ -99,18 +97,16 @@ const Header = ({ navBarTitle, fullWidth }) => {
               </div>
             </a>
           </Link>
-          {navBarTitle
-            ? (
+          {navBarTitle ? (
             <p className="ml-2 font-medium text-day dark:text-night header-name">
               {navBarTitle}
             </p>
-              )
-            : (
+          ) : (
             <p className="ml-2 font-medium text-day dark:text-night header-name">
               {BLOG.title},{' '}
               <span className="font-normal">{BLOG.description}</span>
             </p>
-              )}
+          )}
         </div>
         <NavBar />
       </div>
